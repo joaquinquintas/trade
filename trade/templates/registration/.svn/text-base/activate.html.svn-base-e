@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Cuenta Activada{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper container_12 clearFix">
+  <div class="grid_12">
+    <div class="sectionHead">
+      {% if account %}
+            <h2 class="strong">Gracias, tu cuenta ahora esta activa.</h2>
+            <p>Anda a la <a href="{% url login_company company %}">pagina de login</a></p>
+
+        {% else %}
+        <h2 class="strong">Opps! Algo esta mal.</h2>
+            <p>O el link esta erroneo, o tu clave de activacion ha expirado;
+            la clave de activacion solo es valida por 30 dias despues del registro.
+            Porfavor avisanos asi podemos ayudarte <a href="mailto:soporte@intercambio.com">soporte@intercambio.com</a></p>
+        {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

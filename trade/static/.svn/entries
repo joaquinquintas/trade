@@ -1,0 +1,37 @@
+8
+
+dir
+40
+https://svn.origo.ethz.ch/trade/trunk/trade/trade/static
+https://svn.origo.ethz.ch/trade
+
+
+
+2010-10-01T13:28:57.219014Z
+34
+joako84
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+eb43f539-6daf-4e9e-b607-964351765da3
+
+css
+dir
+
+images
+dir
+
+js
+dir
+

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Ingresa{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper container_12 clearFix">
+  <div class="grid_9">
+
+    <div class="sectionHead">
+      <h2 class="strong">Ingresa a tu cuenta</h2>
+      <p>Ingresa tus datos para poder acceder a tu cuenta.</p>
+    </div>
+
+    <form class="horizForm grayPanel" method="POST" action="">{% csrf_token %}
+      <fieldset class="content">
+
+        {% for field in form %}
+              <div class="item clearFix row {% if field.errors %} rowError {% endif %} {% if field.required %} required {% endif %}">
+               <label class="text" for="{{ field.label }}">{{ field.label }} :</label>
+            <div class="fieldInput">
+              {{field}}
+              {% if field.errors %}{{field.errors}}{% endif %}
+            </div>
+            </div>
+          {% endfor %}
+
+            <div class="item action clearFix">
+          <button class="button" type="submit" name="Submit">Ingresar</button>
+          <p> <br>
+            <!-- <span>Forgot your password?</span> -->
+            <a href="{% url "auth_password_reset" %}">Olvidaste tu clave?</a>
+          </p>
+            </div>
+
+
+      </fieldset>
+    </form>
+  </div>
+
+</div><!-- end #content -->
+{% endblock %}

@@ -1,0 +1,338 @@
+body, html {
+	margin: 0px;
+	padding: 0px;
+	background-repeat: repeat-x;
+	background-color: #FFFFFF;
+	background-image: url(images/80_bg.gif);
+}
+#footer {
+	background-color: #008c00;
+	height: 45px;
+	text-align: center;
+}
+#footer .inside {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	padding-top: 4px;
+	padding-right: 6px;
+	padding-bottom: 0px;
+	padding-left: 6px;
+}
+#footer .inside a {
+	font-weight: normal;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+#main {
+	height: 100%;
+	width: 990px;
+}
+#main .inside {
+	padding-left: 86px;
+	padding-right: 86px;
+}
+#left {
+	float: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	margin-top: 10px;
+}
+#left  .repeater {
+	background-image: url(images/round_content.gif);
+	background-repeat: repeat-y;
+}
+#left .repeater .subinside {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 11px;
+	line-height: 18px;
+	padding-top: 15px;
+	padding-right: 35px;
+	padding-bottom: 15px;
+	padding-left: 35px;
+}
+#left .repeater .subinside h1 {
+	font-family: "Myriad Pro Cond", "Helvetica Condensed", Tahoma, Verdana;
+	text-transform: uppercase;
+	font-size: 22px;
+	letter-spacing: -1px;
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 5px;
+	margin-left: 0px;
+	font-weight: bold;
+	line-height: 24px;
+}
+#right {
+	float: right;
+	margin-bottom: 40px;
+	margin-top: 10px;
+}
+#login {
+	height: 288px;
+	width: 425px;
+	background-image: url(images/login_box.png);
+	background-repeat: no-repeat;
+}
+#login .inside {
+	padding-top: 20px;
+	padding-right: 30px;
+	padding-bottom: 12px;
+	padding-left: 30px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	color: #000000;
+}
+#login .inside h1 {
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+}
+#login .inside input {
+	font-size: 14px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+#login .inside a {
+	font-weight: bold;
+	color: #008c00;
+	text-decoration: underline;
+}
+#core_customerview {
+	background-color: #f0fff0;
+	background-image: url(images/customer_view_repeat.gif);
+	background-repeat: repeat-x;
+	height: 100%;
+	width: 100%;
+}
+#cv_body_repeat {
+	background-image: url(images/customer_body_repeat.gif);
+	background-repeat: repeat-y;
+}
+#cv_header {
+	background-image: url(images/customerview_header.gif);
+	background-repeat: no-repeat;
+	height: 168px;
+	width: 990px;
+}
+#cv_header  .clientname h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #000000;
+	font-size: 30px;
+	letter-spacing: -1px;
+	margin-top: 38px;
+	margin-left: 36px;
+	padding: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+#cv_header .paypal {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	width: 600px;
+	margin-left: 40px;
+	margin-top: 50px;
+	z-index: 5;
+	margin-bottom: -40px;
+	margin-right: 0px;
+	padding-bottom: 0px;
+	display: block;
+	visibility: visible;
+	overflow: visible;
+	position: absolute;
+}
+#cv_header .paypal input {
+	font-size: 14px;
+	padding-top: 5px;
+	padding-right: 5px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+#cv_header .paypal form {
+	margin: 0px;
+	padding: 0px;
+}
+#cv_header .paypal .inputsize {
+	width: 186px;
+}
+
+
+#cv_body {
+	background-image: url(images/customer_body.gif);
+	background-repeat: no-repeat;
+}
+#cv_body .inside {
+	margin-top: 60px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-left: 22px;
+}
+#cv_body .inside .left {
+	float: left;
+	width: 690px;
+}
+#cv_body .inside .left h1 {
+	background-image: url(images/cv_tab_invoice.png);
+	background-repeat: no-repeat;
+	margin: 0px;
+	padding-top: 13px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 95px;
+	height: 53px;
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	letter-spacing: -1px;
+	float: left;
+	width: 350px;
+}
+#cv_body .inside .left .date {
+	float: right;
+	margin-top: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+}
+#cv_body .inside .left .date em {
+	background-color: #fff7c9;
+	font-size: 11px;
+	padding-right: 2px;
+	padding-left: 6px;
+}
+#cv_body .inside .left .address {
+	margin-top: 70px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	padding-left: 10px;
+}
+#cv_body .inside .left .tabular {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+#cv_body .inside .left .tabular th {
+	background-color: #fff7c9;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #a3a3a3;
+	border-bottom-color: #a3a3a3;
+	text-align: left;
+	padding-top: 9px;
+	padding-bottom: 9px;
+}
+#cv_body  .inside  .left  .tabular  td {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #e8e8e8;
+}
+#cv_body .inside .left .total {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
+	margin-top: 5px;
+	margin-right: 20px;
+}
+#cv_body .inside .left h2 {
+	background-image: url(images/cv_tab_history.png);
+	background-repeat: no-repeat;
+	height: 53px;
+	width: 350px;
+	margin-top: 69px;
+}
+#cv_body .inside .left .comments {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	line-height: 18px;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+#cv_body .inside .left .comments td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #bfbfbf;
+}
+#cv_body .inside .right {
+	width: 241px;
+	float: right;
+	margin-right: 5px;
+	margin-top: -50px;
+}
+#cv_body .inside .right .amountdue {
+	height: 119px;
+	width: 255px;
+	background-image: url(images/box_amountdue.png);
+	background-repeat: no-repeat;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+#cv_body .inside .right .amountdue .inside {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 200%;
+	font-weight: bold;
+	margin: 0px;
+	padding-top: 45px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	letter-spacing: -1px;
+}
+#cv_body .inside .right .options {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+#cv_body .inside .right .options .bottomborder {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #b4bfb4;
+}
+#cv_body .inside .right .options a {
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+#cv_body .inside .right .openinvoices {
+	margin-left: -12px;
+}
+#cv_body .inside .right .openinvoices .repeatbody {
+	background-image: url(images/cv_openinvoces_center.png);
+	height: 100%;
+	background-repeat: repeat-y;
+}
+#cv_body  .inside  .right  .openinvoices  .repeatbody  .subinside {
+	padding-top: 5px;
+	padding-right: 25px;
+	padding-bottom: 5px;
+	padding-left: 25px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+#cv_body .inside .right .openinvoices .repeatbody .subinside a {
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+#cv_body .inside .right .openinvoices .repeatbody .subinside td {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #99a399;
+}
+#cv_body .inside .right .openinvoices .repeatbody .subinside strong {
+	background-color: #fff7c9;
+	padding-right: 5px;
+	padding-left: 5px;
+}

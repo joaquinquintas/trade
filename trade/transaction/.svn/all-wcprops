@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/trade/!svn/ver/17/trunk/trade/trade/transaction
+END
+models.py
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/trade/!svn/ver/43/trunk/trade/trade/transaction/models.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/trade/!svn/ver/17/trunk/trade/trade/transaction/__init__.py
+END
+admin.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/trade/!svn/ver/17/trunk/trade/trade/transaction/admin.py
+END

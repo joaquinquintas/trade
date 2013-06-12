@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% load i18n %}
+
+{% block title %}Registracion Completa{% endblock %}
+
+{% block content %}
+<div id="content" class="wrapper container_12 clearFix">
+  <div class="grid_12">
+    <div class="sectionHead">
+      <h2 class="strong">{% trans "Thank you, you registration is completed"%}</h2>
+      <p>
+    {% blocktrans %}
+        You should receive an email shortly. Please click on the link in the email
+        to confirm your email address.
+        If you don't receive our email it is possible that it was flagged as spam,
+        so please check your spam folder.
+    {% endblocktrans%}
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

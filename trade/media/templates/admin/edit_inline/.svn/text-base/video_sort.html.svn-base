@@ -1,0 +1,129 @@
+{% load i18n adminmedia %}
+<style type="text/css" media="screen">
+#{{ inline_admin_formset.formset.prefix }}-group .form-row.sort { display: none; }
+#{{ inline_admin_formset.formset.prefix }}-group input.vForeignKeyRawIdAdminField { width: 3em !important; }
+</style>
+
+<div class="inline-group" id="{{ inline_admin_formset.formset.prefix }}-group">
+  <h2>{{ inline_admin_formset.opts.verbose_name_plural|title }}</h2>
+{{ inline_admin_formset.formset.management_form }}
+{{ inline_admin_formset.formset.non_form_errors }}
+
+{# Sortable set of current media items #}
+<fieldset class="module">
+<h2 class="quiet">Current {{inline_admin_formset.opts.verbose_name_plural}}: (drag items to reorder)</h2>
+<ul id="sortable-videos_{{inline_admin_formset.formset.prefix}}" class="sortable-floats wrapper">
+{% for inline_admin_form in inline_admin_formset %}{% with inline_admin_form.original as mediarel %}
+{% if mediarel %}{% with mediarel.item as item %}
+    <li class="sortable-float" id="video_{{item.id}}">
+      <img src="{{item.thumbnail_url}}" width="120" widthalt="{{item.url}}" />
+      <div class="sortable-tools">
+      <a href="{% url admin:media_video_change item.id %}" class="changelink">edit</a>
+      <a href="{% url admin-media-video-delete_relation item.id opts.app_label opts.object_name original.pk %}" class="deletelink">delete</a>
+      </div>
+      <div style="display:none">
+        {{inline_admin_form.form.item}}
+        {{inline_admin_form.form.sort}}
+        {% if inline_admin_form.has_auto_field %}{{ inline_admin_form.pk_field.field }}{% endif %}
+        {{ inline_admin_form.fk_field.field }}
+      </div>
+    </li>
+{% endwith %}{% endif %}
+{% endwith %}{% endfor %}
+</ul>
+</fieldset>
+
+{# New media inlines #}
+{% for inline_admin_form in inline_admin_formset %}
+{% if not inline_admin_form.original.pk %}
+<div class="inline-related{% if forloop.last %} empty-form last-related{% endif %}" id="{{ inline_admin_formset.formset.prefix }}-{% if not forloop.last %}{{ forloop.counter0 }}{% else %}empty{% endif %}">
+    <h3>Add {{inline_admin_formset.opts.verbose_name}}</h3>
+    {#{% if inline_admin_formset.formset.can_delete and inline_admin_form.original %}<span class="delete">{{ inline_admin_form.deletion_field.field }} {{ inline_admin_form.deletion_field.label_tag }}</span>{% endif %}#}
+
+  {% if inline_admin_form.form.non_field_errors %}{{ inline_admin_form.form.non_field_errors }}{% endif %}
+    
+  {% if not inline_admin_form.original %}
+  {% for fieldset in inline_admin_form %}
+    {% include "admin/includes/fieldset.html" %}
+  {% endfor %}
+  {% endif %}
+
+  {% if inline_admin_form.has_auto_field %}{{ inline_admin_form.pk_field.field }}{% endif %}
+
+  {{ inline_admin_form.fk_field.field }}
+</div>
+{% endif %}{% endfor %}
+</div>
+
+<script type="text/javascript">
+(function($) {
+    $(document).ready(function() {
+        var rows = "#{{ inline_admin_formset.formset.prefix }}-group .inline-related";
+        var updateInlineLabel = function(row) {
+            $(rows).find(".inline_label").each(function(i) {
+                var count = i + 1;
+                $(this).html($(this).html().replace(/(#\d+)/g, "#" + count));
+            });
+        }
+        var reinitDateTimeShortCuts = function() {
+            // Reinitialize the calendar and clock widgets by force, yuck.
+            if (typeof DateTimeShortcuts != "undefined") {
+                $(".datetimeshortcuts").remove();
+                DateTimeShortcuts.init();
+            }
+        }
+        var updateSelectFilter = function() {
+            // If any SelectFilter widgets were added, instantiate a new instance.
+            if (typeof SelectFilter != "undefined"){
+                $(".selectfilter").each(function(index, value){
+                  var namearr = value.name.split('-');
+                  SelectFilter.init(value.id, namearr[namearr.length-1], false, "{% admin_media_prefix %}");
+                })
+                $(".selectfilterstacked").each(function(index, value){
+                  var namearr = value.name.split('-');
+                  SelectFilter.init(value.id, namearr[namearr.length-1], true, "{% admin_media_prefix %}");
+                })
+            }
+        }
+        var initPrepopulatedFields = function(row) {
+            row.find('.prepopulated_field').each(function() {
+                var field = $(this);
+                var input = field.find('input, select, textarea');
+                var dependency_list = input.data('dependency_list') || [];
+                var dependencies = row.find(dependency_list.join(',')).find('input, select, textarea');
+                if (dependencies.length) {
+                    input.prepopulate(dependencies, input.attr('maxlength'));
+                }
+            });
+        }
+        $(rows).formset({
+            prefix: "{{ inline_admin_formset.formset.prefix }}",
+            addText: "{% blocktrans with inline_admin_formset.opts.verbose_name|title as verbose_name %}Add an {{ verbose_name }}{% endblocktrans %}",
+            formCssClass: "dynamic-{{ inline_admin_formset.formset.prefix }}",
+            deleteCssClass: "inline-deletelink",
+            deleteText: "{% trans "Remove" %}",
+            emptyCssClass: "empty-form",
+            removed: updateInlineLabel,
+            added: (function(row) {
+                initPrepopulatedFields(row);
+                reinitDateTimeShortCuts();
+                updateSelectFilter();
+                updateInlineLabel(row);
+            })
+        });
+        
+        $('#sortable-videos_{{inline_admin_formset.formset.prefix}}').sortable({
+            'scroll': true,
+            'update': function(e, ui){            
+                var data = $(this).sortable('serialize').replace(/\[\]/g, '');
+                data += '&model={{opts.app_label}}.{{opts.object_name}}';
+                data += '&id={{original.pk}}';
+                $.post('{% url admin-media-video-sort %}', data);
+                $(this).find('li').not('.ui-sortable-placeholder').each(function(i, item) {
+                    $(item).find('input[name*=-sort]').val(i);
+                });
+            }
+        });
+    });
+})(django.jQuery);
+</script>

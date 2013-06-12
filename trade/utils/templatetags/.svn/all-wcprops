@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/trade/!svn/ver/7/trunk/trade/trade/utils/templatetags
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/trade/!svn/ver/7/trunk/trade/trade/utils/templatetags/__init__.py
+END
+queryset_extras.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/trade/!svn/ver/7/trunk/trade/trade/utils/templatetags/queryset_extras.py
+END
+util.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/trade/!svn/ver/43/trunk/trade/trade/utils/templatetags/util.py
+END
+pagination.py
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/trade/!svn/ver/7/trunk/trade/trade/utils/templatetags/pagination.py
+END
+dates.py
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/trade/!svn/ver/7/trunk/trade/trade/utils/templatetags/dates.py
+END
+generic_markup.py
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/trade/!svn/ver/43/trunk/trade/trade/utils/templatetags/generic_markup.py
+END

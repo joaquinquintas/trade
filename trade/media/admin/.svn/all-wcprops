@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/trade/!svn/ver/44/trunk/trade/trade/media/admin
+END
+views.py
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/trade/!svn/ver/44/trunk/trade/trade/media/admin/views.py
+END
+options.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/trade/!svn/ver/44/trunk/trade/trade/media/admin/options.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/trade/!svn/ver/44/trunk/trade/trade/media/admin/__init__.py
+END
+widgets.py
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/trade/!svn/ver/44/trunk/trade/trade/media/admin/widgets.py
+END
+urls.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/trade/!svn/ver/44/trunk/trade/trade/media/admin/urls.py
+END

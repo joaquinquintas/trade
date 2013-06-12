@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/trade/!svn/ver/7/trunk/trade/trade/utils
+END
+json.py
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/trade/!svn/ver/7/trunk/trade/trade/utils/json.py
+END
+__init__.py
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/trade/!svn/ver/7/trunk/trade/trade/utils/__init__.py
+END
+admin_views.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/trade/!svn/ver/7/trunk/trade/trade/utils/admin_views.py
+END
+fields.py
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/trade/!svn/ver/44/trunk/trade/trade/utils/fields.py
+END
+adminsites.py
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/trade/!svn/ver/7/trunk/trade/trade/utils/adminsites.py
+END
+csv_tools.py
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/trade/!svn/ver/7/trunk/trade/trade/utils/csv_tools.py
+END
+decorators.py
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/trade/!svn/ver/44/trunk/trade/trade/utils/decorators.py
+END

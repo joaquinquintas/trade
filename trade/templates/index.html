@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block scripts %}
+<script type="text/javascript">
+$(function() {
+
+
+
+    $('#sign-up-form').submit(function(event) {
+    event.preventDefault();
+    var post_data = $('#sign-up-form').serialize()
+        $.post("{% url account_register %}", post_data,
+        function(data) {
+            var form = '#sign-up-form';
+        //success
+                $('#message')
+                    .html(
+                        '<span class="amp">' + data.message + '</span>'
+                    )
+                    .show()
+          .delay(7000)
+                    .fadeOut(1000, function() {
+                        $(this).remove();
+                    });
+
+            if(data.success){
+
+        var url "=" data.url;
+        $(location).attr('href',url);
+
+
+                 }else{
+
+
+                     for(var field in data["errors"]) {
+                errors = data["errors"][field]
+                if(errors.length > 0) {
+                    error = errors[0];
+                    if($("#" + field + "_error").length == 0) {
+                        s = $("<br /><span style=\"display: none;\" id=\"" + field + "_error\" class=\"error\">" + error + "</span>");
+                        $("#" + field + "_container").append(s);
+                    }
+                    $("#" + field + "_error").html(error).fadeIn("slow");
+                }
+            }
+
+                 }
+
+        }, "json");
+    });
+
+  $('#message').hide();
+
+  $('#first_name_error').hide();
+    $('#id_first_name').focusin(function() {
+    $('#first_name_error').fadeOut(1000);
+    });
+
+  $('#last_name_error').hide();
+    $('#id_last_name').focusin(function() {
+    $('#last_name_error').fadeOut(1000);
+    });
+
+  $('#email_error').hide();
+    $('#id_email').focusin(function() {
+    $('#email_error').fadeOut(1000);
+    });
+
+  $('#password1_error').hide();
+     $('#id_password1').focusin(function() {
+    $('#password1_error').fadeOut(1000);
+    });
+
+
+  $('#password2_error').hide();
+    $('#id_password2').focusin(function() {
+    $('#password2_error').fadeOut(1000);
+    });
+
+  $('#tinapay_id_error').hide();
+    $('#id_tinapay_id').focusin(function() {
+    $('#tinapay_id_error').fadeOut(1000);
+    });
+
+  $('#accept_terms_error').hide();
+     $('#id_accept_terms').focusin(function() {
+    $('#accept_terms_error').fadeOut(1000);
+    });
+
+
+ });
+
+
+
+</script>
+{% endblock %}
+
+
+{% block content %}
+<div id="content" class="homeContent wrapper">
+  <div class="container_12 clearFix">
+    <div class="grid_12">
+      <div class="feat section clearFix">
+        <div class="text">
+          <h2 class="strong">Algunas cosas son gratis de verdad.</h2>
+          <p>
+            {% trans "Post, Offer, Swap for FREE! "%} {% trans "description"%}
+          </p>
+          <br>
+          <div class="textCenter">
+            <a id="featSignUp" title="Sign up Now! No credit card, no plans, all for FREE!" class="setBlock" href='{% url account_register %}'>
+              <img src="/static/images/btn_signupHome.png" alt="Sign up now" />
+            </a>
+            Para usuarios existentes, <a title="Ingreso a Intercambio" href='{% url account_login %}'>ingresa aqui</a>
+          </div>
+
+      {% include "search/form.html"%}
+
+        </div>
+      </div>
+      <div class="screenOverview tease section clearFix borderBottom">
+        <div class="header">
+          <h2 class="strong">{% trans "Items" %}</h2>
+        </div>
+        <div class="content">
+          <a href="#" title="Scroll Left" class="galleryNav prev"><img src="/static/images/btn_galleryLeft.png" alt="Prev" /></a>
+          <a href="#" title="Scroll Right" class="galleryNav next"><img src="/static/images/btn_galleryRight.png" alt="Next" /></a>
+          <div id="screenies" class="screenieCarousel clearFix">
+            <!--
+            NOTE:
+
+            Thumbnail sizes should be cropped to 150 x 94 px and should be saved inside '/static/images/screenshot_thumbnails/', the corresponding screenshot (the large image)
+            could be any size and should be saved inside '/static/images/screenshot_large/'.
+
+            Please take note that the name of the thumbnail and the large screenshot should be the same. Please refer to the example below.
+             -->
+            <ul>
+              <li>
+                <a tu_group="preview" href="/static/images/screenshot_large/1.jpg" class="top_up" title="Put some short description here"><img src="/static/images/screenshot_thumbnails/1.jpg" alt="Put some alt text here" /></a>
+              </li>
+              <li>
+                <a tu_group="preview" href="/static/images/screenshot_large/2.jpg" class="top_up" title="Put some short description here"><img src="/static/images/screenshot_thumbnails/2.jpg" alt="Put some alt text here" /></a>
+              </li>
+              <li>
+                <a tu_group="preview" href="/static/images/screenshot_large/1.jpg" class="top_up" title="Put some short description here"><img src="/static/images/screenshot_thumbnails/1.jpg" alt="Put some alt text here" /></a>
+              </li>
+              <li>
+                <a tu_group="preview" href="/static/images/screenshot_large/2.jpg" class="top_up" title="Put some short description here"><img src="/static/images/screenshot_thumbnails/2.jpg" alt="Put some alt text here" /></a>
+              </li>
+              <li>
+                <a tu_group="preview" href="/static/images/screenshot_large/1.jpg" class="top_up" title="Put some short description here"><img src="/static/images/screenshot_thumbnails/1.jpg" alt="Put some alt text here" /></a>
+              </li>
+              <li>
+                <a tu_group="preview" href="/static/images/screenshot_large/2.jpg" class="top_up" title="Put some short description here"><img src="/static/images/screenshot_thumbnails/2.jpg" alt="Put some alt text here" /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="featOverview tease section clearFix borderBottom">
+        <div class="header">
+          <h2 class="strong">Lo que nos hace distintos</h2>
+          <p>
+           En Intercambio.com hay cosas interesantes.
+          </p>
+        </div>
+        <div class="content">
+          <div class="item alpha clearFix">
+            <img class="alignLeft" width="50" height="50" src="/static/images/feat_easy.png" alt="Easy to Use" />
+            <div class="alignLeft text">
+              <span class="title setBlock">Amigable y facil de usar</span>
+            </div>
+          </div>
+          <div class="item alpha clearFix">
+            <img class="alignLeft" width="50" height="50" src="/static/images/feat_mgt.png" alt="Easy to Use" />
+            <div class="alignLeft text">
+              <span class="title setBlock">Nada de tarjetas de credito</span>
+            </div>
+          </div>
+          <div class="item clearFix">
+            <img class="alignLeft" width="50" height="50" src="/static/images/feat_free.png" alt="Easy to Use" />
+            <div class="alignLeft text">
+              <span class="title setBlock">y es absolutamente GRATIS!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tease section clearFix">
+        <div class="header">
+          <h2 class="strong">Get started in seconds</h2>
+          <p>
+            Forget about pricing, forget about features you don’t need.  Try TinaPay now, and you’ll never look back.
+          </p>
+        </div>
+        <div class="content">
+          <form id="sign-up-form" method="POST" action="" class="horizForm clearFix">
+                 <fieldset class="content">
+
+              <div class="item">
+                <div id="message" class="notice"></div>
+              </div>
+
+              <div class="item clearFix row {% if form.username.errors %} rowError {% endif %} {% if form.username.required %} required {% endif %}">
+                <label class="text" for="{{ form.username.label }}">{{ form.username.label}} :</label>
+                <div class="fieldInput">
+                  {{ form.username }}
+                  {% if form.username.errors %}{{ form.username.errors }}{% endif %}
+                  <div id="username_error" class="error"></div>
+                </div>
+              </div>
+
+
+              <div class="item clearFix row {% if form.email.errors %} rowError {% endif %} {% if form.email.required %} required {% endif %}">
+                <label class="text" for="{{ form.email.label }}">{{ form.email.label}} :</label>
+                <div class="fieldInput">
+                  {{ form.email }}
+                  {% if form.email.errors %}{{ form.email.errors }}{% endif %}
+                  <div id="email_error" class="error"></div>
+                </div>
+              </div>
+
+              <div class="item clearFix row {% if form.password1.errors %} rowError {% endif %} {% if form.password1.required %} required {% endif %}">
+                <label class="text" for="{{ form.password1.label }}">{{ form.password1.label}} :</label>
+                <div class="fieldInput">
+                  {{ form.password1 }}
+                  {% if form.password1.errors %}{{ form.password1.errors }}{% endif %}
+                  <div id="password1_error" class="error"></div>
+                </div>
+              </div>
+
+
+              <div class="item clearFix row {% if form.accept_terms.errors %} rowError {% endif %} {% if form.accept_terms.required %} required {% endif %}">
+                <label class="text" for="{{ form.accept_terms.label }}">{{ form.accept_terms.label}} :</label>
+                <div class="fieldInput">
+                  {{ form.accept_terms }}
+                  {% if form.accept_terms.errors %}{{ form.accept_terms.errors }}{% endif %}
+                  <div id="accept_terms_error" class="error"></div>
+                </div>
+              </div>
+
+
+                  <div class="item action clearFix">
+                <button class="button" type="submit" name="Submit">Crear Cuenta</button>
+                <p> <br>
+                  <span>Ya estas registrado?</span>
+                  <a href='{% url account_login %}'>Ingresa Aqui</a>
+                </p>
+                  </div>
+            </fieldset>
+          </form>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div> <!-- end .grid_12 -->
+</div><!-- end #content -->
+{% endblock %}

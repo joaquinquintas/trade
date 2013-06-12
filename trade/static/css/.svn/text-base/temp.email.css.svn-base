@@ -1,0 +1,257 @@
+/* @group Notices & Status */
+
+/* @group Base */
+.error, .notice, .success{
+	border:1px solid #dfdfdf;
+	margin:10px 0;
+	padding:7px;
+	font-weight: bold;
+}
+
+.error h2, .notice h2, .success h2{
+	font-size: 14px;	
+	font-weight: bold;
+	margin: 0 0 10px 0;
+}
+
+.error .hasIcon, .notice .hasIcon, .success .hasIcon{
+	padding: 1px 0 0 25px;
+}
+
+.notice p, .error p, .success p{
+	margin: 0;
+}
+/* @end Base*/
+
+/* @group Frames */
+.error{
+	border-color: #ecbbc1;
+	background-color: #ffe2e6;	
+}
+
+.success{
+	border-color: #b4e0a3;
+	background-color: #e8fde0;
+}
+
+.notice{
+	border-color: #ebe692;
+	background-color: #ffffef;
+	color: #333;
+}
+/* @end Frames*/
+
+/* @group Textcolor */
+.error, .negative{
+	color: #943232;
+}
+
+.success, .positive{
+	color: #34a93c;	
+}
+/* @end TextColor */
+
+/* @end Notices & Status*/
+
+
+
+/* @group Text */
+
+.textCenter { text-align: center;}
+.textLeft {	text-align: left; }
+.textRight { text-align: right;}
+
+/* @end Text*/
+
+
+/* @group Alignment & Positioning */
+
+.alignNone{ float: none; }
+.alignCenter{ margin: 0 auto;}
+.alignRight { float: right;}
+.alignLeft { float: left }
+
+.vAlignTop{	vertical-align: top; }
+.vAlignBottom{ vertical-align: bottom; }
+.vAlignMiddle{	vertical-align: middle;	}
+.vAlignTextBottom{ vertical-align: text-bottom;}
+
+/* @end Alignment & Positioning */
+
+/* @group Clearing & Displaying*/
+
+.clearFix:after{ 
+	content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clear{	overflow: hidden;}
+.clearVisible{ overflow: visible;}
+.clearBoth{	clear: both;}
+.clearAuto{	overflow: auto;}
+.hidden { display: none;}
+.setBlock{ display: block;}
+	
+/* @end Clearing & Displaying */
+
+/* @group Assorted */
+
+address{
+	font-style: normal;
+}
+
+a{
+	font-size: 12px;
+}
+
+strong, .strong{ font-weight: bold;}
+
+/* @end Assorted */
+
+
+
+
+/* @group Structure - FLAG */
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+#bodyWrapper{
+	width: 1000px;
+	margin: 0 auto;;
+}
+
+.colWrapper{
+	width: 960px;
+	margin: 20px 0;
+}
+
+.colAside{
+	width: 220px;
+	margin: 0 10px;
+	float: left;	
+}
+
+.colMain{
+	width: 700px;
+	float: left;
+}
+
+.colMain.invoicePreview{
+	border: 1px solid #bfbfbf;
+	padding: 10px;
+	width:678px;
+	-moz-box-shadow:0 0 10px -3px #000000;
+	-webkit-box-shadow:0 0 10px -3px #000000;
+	font-size: 12px;
+}
+
+.colMain.invoicePreview .invoiceHead{
+	background: #1c1c1c;
+	padding: 20px 10px;
+	margin-bottom: 20px;
+}
+
+.colMain.invoicePreview .invoiceHead h2{
+	color: #fff;	
+	text-shadow: 0 0 1px #2c2c2c;
+	font-size: 18px;
+	letter-spacing: 0.025em;
+	font-weight: bold;
+	line-height: 1;
+	margin: 0;
+}
+
+.colMain.invoicePreview .invoiceTo{
+	line-height: 1.4em;
+	font-size: 12px;
+	margin-bottom: 20px	;
+}
+
+.colMain.invoicePreview .invoiceAddr .col{
+	width: 280px;
+}
+
+.colMain.invoicePreview .invoiceTo p{
+	margin: 0;
+}
+
+.colMain.invoicePreview .invoiceTo .clientName{
+	font-size: 14px;
+}
+
+.colMain.invoicePreview .invoiceNotes{
+	margin: 10px 0;	
+}
+
+.colMain.invoicePreview .invoiceNotes .noteHead{
+	padding: 10px 0 5px;
+	border-bottom: 1px solid #dfdfdf;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+
+.colMain.invoicePreview .invoiceNotes .noteDetails{
+	font-family: Georgia, serif;
+	font-size: 12px;
+	line-height: 1.4em;
+	font-style: italic;
+	color: #666;
+}
+
+
+/*.genericTable{
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.genericTable th,
+.genericTable td{
+	padding: 10px 7px;
+	font-size: 12px;
+	line-height: 1.4em;
+	text-align: left;
+	vertical-align: top;
+}
+
+.genericTable th{
+	line-height: 1;
+	background-color: #f0f0f0;
+	font-weight: bold;
+	color: #333;
+}
+
+.genericTable td{
+	border-bottom: 1px dotted #cfcfcf	;
+}*/
+
+
+
+/* @end Structure */
+
+
+
+/* @group invoiceTable */
+
+/*.invoiceTable tr.subTotal td,
+.invoiceTable tr.totalDue td{
+		border: none;
+		padding: 7px 7px 0px;	
+}
+
+.invoiceTable tr.totalDue td{
+	font-size: 14px;
+	font-weight: bold;
+}*/
+
+/* @end .invoiceTable */
+
+
+#pay-invoice form{
+	display: inline !important;
+}
+

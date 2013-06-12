@@ -1,0 +1,52 @@
+8
+
+dir
+44
+https://svn.origo.ethz.ch/trade/trunk/trade/trade/media/templates/admin/media/video
+https://svn.origo.ethz.ch/trade
+
+
+
+2010-11-22T23:34:56.487319Z
+44
+joako84
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+eb43f539-6daf-4e9e-b607-964351765da3
+
+change_form.html
+file
+
+
+
+
+2010-09-16T13:57:35.000000Z
+3aba4cca9ee6f6b43df072864db40880
+2010-11-22T23:34:56.487319Z
+44
+joako84
+
+delete_video_relation.html
+file
+
+
+
+
+2010-09-16T13:57:35.000000Z
+ce24e8cd662d1123ade024837cc336b6
+2010-11-22T23:34:56.487319Z
+44
+joako84
+

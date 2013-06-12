@@ -1,0 +1,56 @@
+{% extends "admin/change_list.html" %}
+{% load admin_list i18n admin_media tagging_tags pagination %}
+
+{% block content_title %}
+    <h1 class="float-left">Images: </h1>
+    <ul class="view-selector">
+        <li>
+            <a href="{% url admin:media_image_changelist %}detail/" 
+               class="{% ifequal view "detail" %}active{% endifequal %}">Detail View</a>
+        </li>
+        <li> | </li>
+        <li>
+            <a href="{% url admin:media_image_changelist %}organize/" 
+               class="{% ifequal view "organize" %}active{% endifequal %}">Tag View</a>
+        </li>
+    </ul>
+{% endblock %}
+
+    {% block object-tools %}
+        {% if has_add_permission %}
+        <ul class="object-tools">
+            <li>
+            <a href="add/{% if is_popup %}?_popup=1{% endif %}" class="addlink">
+                {% blocktrans with cl.opts.verbose_name_plural as name %}Add {{ name }}{% endblocktrans %}
+            </a>
+            </li>
+        </ul>
+        {% endif %}
+    {% endblock %}   
+
+
+    {% block filters %}
+    {% if cl.has_filters %}
+    <div id="changelist-filter" {% ifequal view "organize"%}class="organize-view"{% endifequal %}>
+    <h2>{% trans 'Filter' %}</h2>
+    {% for spec in cl.filter_specs %}
+    {% admin_list_filter cl spec %}
+    {% endfor %}
+
+    {% image_list_filter %}
+
+    {% tags_for_model media.Image as image_tags %}
+    {% if image_tags %}{% with request.GET.related_tags__tag as selected_tag %}
+    <div class="filterset {% if selected_tag %}collapse-open{% else %}collapse-closed{% endif %}">
+    <h3>By Tags</h3>
+    <ul>
+        <li{% if not selected_tag %} class="selected"{%endif%}><a href="?{% querydict_merge cl.get_query_string "related_tags__tag" "" %}">All</a></li>
+        {% for tag in image_tags %}{% with tag.id|stringformat:"d" as tid %}
+        <li{% ifequal selected_tag tid %} class="selected"{%endifequal%}><a href="?{% querydict_merge cl.get_query_string "related_tags__tag" tag.id %}">{{tag}}</a></li>
+        {%endwith %}{% endfor %}
+    </ul>
+    </div>
+    {% endwith %}{% endif %}
+    </div>
+    {% endif %}
+    {% endblock %}

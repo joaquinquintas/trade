@@ -1,0 +1,28 @@
+{% extends "base.html" %} 
+
+{% block title %}Page Unavailable{% endblock %}
+
+{% block menu %}
+<ul id="mainNav"  class="alignRight clearFix">
+	<li><a href='{% url home %}'>Home</a></li>
+	<li><a href='{% url sign_up %}'>Sign Up</a></li>
+	<li><a href='{% url login %}'>Login</a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %} 
+	<div id="content" class="wrapper container_12 clearFix">
+		<div class="grid_12">
+			<div class="sectionHead">
+				<h2 class="strong">Easy tiger. That page seems to be unavailable this time.</h2>
+				<p>
+					We are sorry for this inconvenience. There's a possibility that the page you are trying to access is unavailable due to a server hiccup. <br>
+					Our engineers have been notified and are on their way to check this issue, so check back in a few minutes.<br><br>
+					For now, you may want to go back to the <a href="/">homepage</a> or visit our <a href="/blog">blog</a>.  
+					Feel free to <a href='{% url contact %}'>contact us</a> directly as well.
+				</p>
+			</div>	
+		</div><!-- end .grid_12 -->
+	</div><!-- end #content -->
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "admin/media/file/change_list.html" %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style type="text/css" media="screen">
+.paginator .default { display: none; }
+</style>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script type="text/javascript" charset="utf-8">
+$(function() {
+    $('input.action-select, input#action-toggle').closest('td, th').hide();
+});
+</script>
+{% endblock %}
+
+{% block content_title %}<h1>Select Files</h1>{% endblock %}
+

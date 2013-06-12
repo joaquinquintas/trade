@@ -1,0 +1,11 @@
+{% for filter in filters %}{% if filter.objects %}
+<div class="filterset {% if filter.selected %}collapse-open{% else %}collapse-closed{% endif %}">
+<h3>By {{filter.name }}</h3>
+<ul>
+    <li{% if not filter.selected %} class="selected"{%endif%}><a href="?">All</a></li>
+    {% for obj in filter.objects %}{% with obj.id|stringformat:"d" as id %}
+    <li{% ifequal filter.selected id%} class="selected"{%endifequal%}><a href="?relations__content_type__model={{filter.ctype.model}}&amp;relations__object_id={{obj.id}}">{{obj}}</a></li>
+    {% endwith %}{% endfor %}
+</ul>
+</div>
+{% endif %}{% endfor %}

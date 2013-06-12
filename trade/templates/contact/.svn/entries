@@ -1,0 +1,52 @@
+8
+
+dir
+40
+https://svn.origo.ethz.ch/trade/trunk/trade/trade/templates/contact
+https://svn.origo.ethz.ch/trade
+
+
+
+2010-09-29T04:02:12.247614Z
+26
+joako84
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+eb43f539-6daf-4e9e-b607-964351765da3
+
+form.html
+file
+45
+
+
+
+2010-11-23T15:07:43.000000Z
+a04355f2c3db32fb6ca5ffb64fcfdf59
+2010-11-23T15:17:03.615334Z
+45
+joako84
+
+send_love-inc.html
+file
+45
+
+
+
+2010-11-23T14:55:26.000000Z
+70648680dd07f41a69db8dcc325891f7
+2010-11-23T15:17:03.615334Z
+45
+joako84
+

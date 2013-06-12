@@ -1,0 +1,27 @@
+{% extends "base.html" %} 
+
+{% block title %}Page not found{% endblock %}
+
+{% block menu %}
+<ul id="mainNav"  class="alignRight clearFix">
+	<li><a href='{% url home %}'>Home</a></li>
+	<li><a href='{% url sign_up %}'>Sign Up</a></li>
+	<li><a href='{% url login %}'>Login</a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %} 
+	<div id="content" class="wrapper container_12 clearFix">
+		<div class="grid_12">
+			<div class="sectionHead">
+				<h2 class="strong">Ooops! Something’s Gone Horribly Wrong.</h2>
+				<p>
+					We are sorry for this inconvenience. You may have followed a bad external link, or mis-typed a URL.	<br>			
+					For now, you may want to go back to the <a href="/">homepage</a> or visit our <a href="/blog">blog</a>. 
+				</p> 				
+			</div>
+		</div><!-- end .grid_12 -->
+	</div><!-- end #content -->
+{% endblock %}
+

@@ -1,0 +1,56 @@
+Items Faltantes: 22/10/2010
+
+micambio.com.ar
+
+Kuperbiados: 3000 pesos ?
+  Disenio
+  Nombre del sitio
+  Logo
+
+Vanesa Fabrik: 1000 pesos ( No HTML)
+Lance: 600 USD
+
+
+General:
+  - Traducion usando I18n - Rosseta - Done
+  - Front end usando css, js igual al de tinapay. Solo cambiar algunos logos e imagenes.
+  - Mensajede Bienvenida.
+
+Registracion:
+  - Bien simple - Done
+  - Solo pedirle username, email, password, y aceptar terminos. - Done
+  - Setear el host email, en el settings.py, utilizar la conf de invoice app. - Done
+
+Administracion de cuenta:
+  - Panel de control:
+    1. Mostrar: Mis Productos, Ofertas realizadas, Ofertas recibidas.
+
+  - ABM Articulos
+      - Nombre de la pagina, relacionado con la categoria.
+        1. Selecciona categoria o tag. - Done
+        2. Form completo. - Done
+        3. Ver manejo de imagenes segun CMS. - No, pasa para la version 2.0
+        3.1 Imagenes usando formset
+        4. Productos de interes (tag)
+
+  - ABM Ofertas
+
+  - Editar Perfil
+      - Cerrar cuenta
+      - Direccion
+
+  - Mis cambios
+
+  - Mis ofertas
+
+  - Mis publicaciones
+
+  - Oferta:
+    1. Crear modelos oferta y contraOferta (Recursivo?)
+
+ Contacto:
+   - formulario de contacto - Done
+   - Agregar Estilo.
+
+Busqueda:
+  - Usar la herramienta haysack

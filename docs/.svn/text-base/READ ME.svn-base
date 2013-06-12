@@ -1,0 +1,23 @@
+______________
+
+Mi Cambio
+
+______________
+
+Requisites:
+
+Django 1.2.3
+Python 2.5
+MySQL
+
+tagging
+haystack
+rosetta
+sorl.thumbnail
+Whoosh
+PIL
+
+
+
+
+

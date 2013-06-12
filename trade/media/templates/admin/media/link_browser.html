@@ -1,0 +1,154 @@
+{% extends "admin/base.html" %}{% load adminmedia %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block extrahead %}
+{{block.super}}
+
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery/ui/ui.core.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery/ui/ui.tabs.js"></script>
+
+<link rel="stylesheet" href="{{MEDIA_URL}}admin/css/tabs.css" type="text/css"  />
+<!-- Additional IE/Win specific style sheet (Conditional Comments) -->
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="{{MEDIA_URL}}admin/css/tabs-ie.css" type="text/css"  />
+<![endif]-->
+
+<style type="text/css">
+html, body { height: 100%; position: relative; }
+body { margin: 0 !important; }
+#content { margin: 0; padding-top: 3px; padding-left: 4px;  height: 100%; }
+#header, #footer { display: none; }
+.tab-pane {
+    width: 1000px;
+    padding: 0;
+}
+iframe {
+    width: 1000px;
+    height: 600px;
+    border: none !important;
+    margin: 0;
+}
+</style>
+
+
+<script type="text/javascript">
+// <![CDATA[
+var media_url = '{{MEDIA_URL}}';
+
+// Callback: returns the selected url to the dialog opener
+// This is called from an iframe with the url.
+function return_selected_file( url ) {
+    var param_array = window.location.search.replace('?','').split('&');
+    var params = {};
+    $.each(param_array, function(i,p){var a = p.split('='); params[a[0]] = a[1] });
+    if(window.opener) {
+        if (window.opener.CKEDITOR) {
+            var funcNum = window.location.search.replace(/.+CKEditorFuncNum=(\d+).*/, '$1');
+            window.opener.CKEDITOR.tools.callFunction( funcNum, url);
+            window.close();
+        } else if (window.opener.image_manager_callback) {
+            window.opener.image_manager_callback( window, url );
+        } else if (window.opener.file_manager_callback ) {
+            window.opener.file_manager_callback( window, url );
+        }
+    }
+}
+
+// Callback: Django calls this after adding a new model instance
+// we use a little magic to trap this call and then proxy it to the
+// currently selected iframe listener.
+function dismissAddAnotherPopup(win, newId, newRepr) {
+    var tabindex = $('#tabs').tabs('option', 'selected');
+    var listener = $('#tabs .tabset li').eq(tabindex).data('FrameListener');
+    listener.return_url(newId);
+}
+
+// Set up iframes and watch for updates and handle events.
+FrameListener = function() {
+    return this.init.apply(this, arguments);
+}
+FrameListener.prototype = {
+    init: function(title, module, url) {
+        var self = this;
+        self.title = title;
+        self.module = module;
+        self.url = url;
+
+        // Add DOM elements for tabs and iframe
+        var $tab = $('<li><a href="#'+title+'">'+title+'</a></li>').appendTo('#tabs .tabset')
+            .data('FrameListener', self);
+
+        var $frame = $('<iframe src="" name="'+title+'Frame" id="'+title+'Frame"></iframe>')
+            .appendTo($('<div id="'+title+'" class="tab-pane"></div>').appendTo('#tabs'));
+        $frame.load(function(e) {self.load(e)});
+        $frame.attr('src', self.url);
+        self.frame = top[title + 'Frame'];
+    },
+
+    load: function(e) {
+        var self = this;
+        var doc = self.frame.document;
+
+        // Clear out filters so we have more room.
+        $('#changelist-filter', doc).hide().parent().removeClass('filtered');
+
+        // Trap dismissAddAnotherPopup call sent by djange after adding a new
+        // model instance.  Since this is called from within an iframe, we have to
+        // call it with parent instead of opener.
+        var $script = $('script', doc);
+        if ($script.length == 1) {
+            var text = $script.text();
+            if (!text) {
+                text = $('head', doc).html().replace(/<script[^>]*>(.+)<\/script>/i, '$1');
+            }
+            if (text.indexOf('dismissAddAnotherPopup') != -1) {
+                text = text.replace('opener', 'parent');
+                eval(text);
+            }
+        }
+
+        // Listen on changelist links within the iframe so we can gather
+        // the url for the clicked item.
+        $('#changelist table tbody a, .changelist li a', doc).click(function(e) {
+            var re = /(\d+)\//;
+            var id = re.exec($(this).attr('href'))[1];
+            self.return_url(id);
+            return false;
+        }).each(function() {
+            // Clear out any previously set onlick events by django.
+            this.onclick = null;
+        });
+    },
+
+    return_url: function(id) {
+        var self = this;
+        $.get('{% url trade.utils.admin_views.fetch_url %}?model='+self.module+'&pk='+id, function(url) {
+            window.parent.return_selected_file(url);
+        });
+    }
+}
+
+$(function() {
+    // Set up iframe listener
+    new FrameListener('files', 'media.File', '{% url admin:media_file_changelist %}?pop=1');
+    new FrameListener('images', 'media.Image', '{% url admin:media_image_changelist %}?pop=1');
+    new FrameListener('pages', 'content.Page', '{% url admin:content_page_changelist %}?pop=1');
+
+    // Set up tabs UI
+    $('#tabs').tabs();
+});
+// ]]>
+</script>
+
+
+{% endblock %}
+
+{% block content %}
+
+<div id="tabs">
+    <ul class="tabset"></ul>
+</div>
+
+
+{% endblock %}
