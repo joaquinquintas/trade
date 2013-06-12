@@ -1,5 +1,0 @@
- {% load i18n %}
-
- <form id="search_form" action="{% url product_search %}" method="POST">
- <input type="text" name="q" /><button class="button" type="submit" name="Submit">{% trans "Search"%}</button>
- </form>
